@@ -14,7 +14,7 @@ resource "aws_cloudwatch_metric_alarm" "ApproximateNumberOfMessagesNotVisible" {
   tags                = var.tags
 
   dimensions = {
-    QueueName = data.aws_sqs_queue.sqs.name
+    QueueName = var.sqs_name
   }
 }
 
@@ -34,7 +34,7 @@ resource "aws_cloudwatch_metric_alarm" "ApproximateNumberOfMessagesVisible" {
   tags                = var.tags
 
   dimensions = {
-    QueueName = data.aws_sqs_queue.sqs.name
+    QueueName = var.sqs_name
   }
 }
 
@@ -56,6 +56,6 @@ resource "aws_cloudwatch_metric_alarm" "ApproximateAgeOfOldestMessage" {
   tags                = var.tags
 
   dimensions = {
-    QueueName = data.aws_sqs_queue.sqs.name
+    QueueName = var.sqs_name
   }
 }
