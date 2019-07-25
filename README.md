@@ -3,7 +3,7 @@ Terraform module to automate creating sqs alarms
 
 ## Example usage
 ```terraform
-module "lambda-alarms" {
+module "sqs-alarms" {
   source       = "github.com/TourRadar/terraform-sqs-alarms"
   sqs_name     = aws_sqs_queue.main.name
   actions      = ["snsarn etc"]
