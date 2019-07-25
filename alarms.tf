@@ -1,4 +1,5 @@
 resource "aws_cloudwatch_metric_alarm" "ApproximateNumberOfMessagesNotVisible" {
+  count = var.approximate_number_messages_not_visible_enabled ? 1 : 0
   alarm_name          = "${var.alarm_prefix}: Approximate Number Of Messages Not Visible is high"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = var.approximate_number_messages_not_visible_periods
@@ -18,6 +19,7 @@ resource "aws_cloudwatch_metric_alarm" "ApproximateNumberOfMessagesNotVisible" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "ApproximateNumberOfMessagesVisible" {
+  count = var.approximate_number_messages_visible_enabled ? 1 : 0
   alarm_name          = "${var.alarm_prefix}: Approximate Number Of Messages Visible is high"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = var.approximate_number_messages_visible_periods
@@ -39,6 +41,7 @@ resource "aws_cloudwatch_metric_alarm" "ApproximateNumberOfMessagesVisible" {
 
 
 resource "aws_cloudwatch_metric_alarm" "ApproximateAgeOfOldestMessage" {
+  count               = var.approximate_age_of_oldest_message_enabled ? 1 : 0
   alarm_name          = "${var.alarm_prefix}: Approximate Age Of Oldest Message is high"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = var.approximate_age_of_oldest_message_periods
