@@ -35,10 +35,20 @@ variable "approximate_number_messages_not_visible_period" {
   default = 60
 }
 
+variable "approximate_number_messages_not_visible_missing_data" {
+  type    = string
+  default = "notBreaching"
+}
+
 
 variable "approximate_number_messages_visible_enabled" {
   type    = bool
   default = true
+}
+
+variable "approximate_number_messages_visible_missing_data" {
+  type    = string
+  default = "notBreaching"
 }
 
 variable "approximate_number_messages_visible_threshold" {
@@ -60,6 +70,11 @@ variable "approximate_number_messages_visible_period" {
 variable "approximate_age_of_oldest_message_enabled" {
   type    = bool
   default = true
+}
+
+variable "approximate_age_of_oldest_message_missing_data" {
+  type    = string
+  default = "notBreaching"
 }
 
 variable "approximate_age_of_oldest_message_threshold" {

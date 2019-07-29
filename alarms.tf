@@ -9,7 +9,7 @@ resource "aws_cloudwatch_metric_alarm" "ApproximateNumberOfMessagesNotVisible" {
   period              = var.approximate_number_messages_not_visible_period
   statistic           = "Average"
   alarm_description   = "Alarm is above of threshold: ${var.approximate_number_messages_not_visible_threshold}. Looks like Queue Consumer cannot process messages"
-  treat_missing_data  = "breaching"
+  treat_missing_data  = var.approximate_number_messages_not_visible_missing_data
   alarm_actions       = var.actions
   tags                = var.tags
 
@@ -29,7 +29,7 @@ resource "aws_cloudwatch_metric_alarm" "ApproximateNumberOfMessagesVisible" {
   period              = var.approximate_number_messages_visible_period
   statistic           = "Average"
   alarm_description   = "Alarm is above of threshold: ${var.approximate_number_messages_visible_threshold}. Looks like Queue Consumer is too slow to process messages"
-  treat_missing_data  = "breaching"
+  treat_missing_data  = var.approximate_number_messages_visible_missing_data
   alarm_actions       = var.actions
   tags                = var.tags
 
@@ -51,7 +51,7 @@ resource "aws_cloudwatch_metric_alarm" "ApproximateAgeOfOldestMessage" {
   period              = var.approximate_age_of_oldest_message_period
   statistic           = "Maximum"
   alarm_description   = "Alarm is above of threshold: ${var.approximate_age_of_oldest_message_threshold}. Looks like Queue Consumer is too slow to process messages"
-  treat_missing_data  = "breaching"
+  treat_missing_data  = var.approximate_age_of_oldest_message_missing_data
   alarm_actions       = var.actions
   tags                = var.tags
 
