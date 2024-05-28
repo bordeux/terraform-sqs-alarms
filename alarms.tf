@@ -11,7 +11,7 @@ resource "aws_cloudwatch_metric_alarm" "ApproximateNumberOfMessagesNotVisible" {
   alarm_description   = "Priority: ${each.key} Alarm is above of threshold: ${each.value}. Looks like Queue Consumer cannot process messages"
   treat_missing_data  = var.approximate_number_messages_not_visible_missing_data
   alarm_actions       = var.actions
-  ok_actions          = var.actions
+  ok_actions          = var.ok_actions
   tags                = var.tags
 
   dimensions = {
@@ -32,7 +32,7 @@ resource "aws_cloudwatch_metric_alarm" "ApproximateNumberOfMessagesVisible" {
   alarm_description   = "Priority: ${each.key} Alarm is above of threshold: ${each.value}. Looks like Queue Consumer is too slow to process messages"
   treat_missing_data  = var.approximate_number_messages_visible_missing_data
   alarm_actions       = var.actions
-  ok_actions          = var.actions
+  ok_actions          = var.ok_actions
   tags                = var.tags
 
   dimensions = {
@@ -55,7 +55,7 @@ resource "aws_cloudwatch_metric_alarm" "ApproximateAgeOfOldestMessage" {
   alarm_description   = "Priority: ${each.key} Alarm is above of threshold: ${each.value}. Looks like Queue Consumer is too slow to process messages"
   treat_missing_data  = var.approximate_age_of_oldest_message_missing_data
   alarm_actions       = var.actions
-  ok_actions          = var.actions
+  ok_actions          = var.ok_actions
   tags                = var.tags
 
   dimensions = {
