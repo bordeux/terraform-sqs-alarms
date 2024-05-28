@@ -2,6 +2,13 @@ variable "actions" {
   description = "List of actions what should be executed"
   type        = list(string)
 }
+
+variable "ok_actions" {
+  description = "List of actions what should be executed"
+  type        = list(string)
+  default     = []
+}
+
 variable "sqs_name" {
   type = string
 }
